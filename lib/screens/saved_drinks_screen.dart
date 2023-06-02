@@ -1,7 +1,6 @@
-import 'dart:math';
-
 import 'package:cocktail_party/models/drink.dart';
 import 'package:cocktail_party/provider/save_provider/save_provider.dart';
+import 'package:cocktail_party/screens/drink_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -17,7 +16,6 @@ class _SavedDrinksScreenState extends State<SavedDrinksScreen> {
   @override
   void initState() {
     super.initState();
-    // Provider.of<SaveProvider>(context).fetchList();
   }
 
   @override
@@ -25,6 +23,10 @@ class _SavedDrinksScreenState extends State<SavedDrinksScreen> {
     final screenSize = MediaQuery.of(context).size;
     return Consumer<SaveProvider>(
       builder: (context, saveProvider, child) => Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text('Favorites'),
+        ),
         body: FutureBuilder<List<Drink>?>(
           future: saveProvider.getItems(),
           builder: (context, snapshot) {
@@ -32,31 +34,39 @@ class _SavedDrinksScreenState extends State<SavedDrinksScreen> {
               return ListView.builder(
                 itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(4),
-                    child: ListTile(
-                      leading: ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
-                        child: Image.network(
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) =>
+                            DrinkDetailsScreen(drink: snapshot.data![index]),
+                      ));
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(4),
+                      child: ListTile(
+                        leading: Image.network(
                           snapshot.data![index].strDrinkThumb!,
                           width: screenSize.height * 0.1,
                           height: screenSize.height * 0.1,
                         ),
-                      ),
-                      title: Text(
-                        snapshot.data![index].strDrink!,
-                        style: GoogleFonts.poppins(fontSize: 20),
-                      ),
-                      subtitle: Text(
-                        snapshot.data![index].strAlcoholic!,
-                        style: GoogleFonts.poppins(fontSize: 14),
-                      ),
-                      trailing: IconButton(
-                        onPressed: () async {
-                          await saveProvider.deleteDrink(
-                              drink: snapshot.data![index]);
-                        },
-                        icon: const Icon(Icons.delete),
+                        title: Text(
+                          snapshot.data![index].strDrink!,
+                          style: GoogleFonts.poppins(fontSize: 20),
+                        ),
+                        subtitle: Text(
+                          snapshot.data![index].strAlcoholic!,
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            color: Colors.grey,
+                          ),
+                        ),
+                        trailing: IconButton(
+                          onPressed: () async {
+                            await saveProvider.deleteDrink(
+                                drink: snapshot.data![index]);
+                          },
+                          icon: const Icon(Icons.delete),
+                        ),
                       ),
                     ),
                   );

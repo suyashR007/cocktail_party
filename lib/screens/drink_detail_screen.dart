@@ -1,5 +1,8 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cocktail_party/models/drink.dart';
+import 'package:cocktail_party/provider/main_screen_provider.dart';
 import 'package:cocktail_party/provider/save_provider/save_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -81,16 +84,41 @@ class _DrinkDetailsScreenState extends State<DrinkDetailsScreen> {
                       ),
                     ),
                     Text(widget.drink.strGlass!),
-                    Consumer<SaveProvider>(
-                      builder: (context, saveProvider, child) => Center(
-                        child: ElevatedButton.icon(
-                          onPressed: () async {
-                            var resp = await saveProvider.saveItem(
-                                drink: widget.drink);
-                            print(resp);
+                    Consumer2<SaveProvider, MainScreenProvider>(
+                      builder:
+                          (context, saveProvider, mainScreenProvider, child) =>
+                              Center(
+                        child: FutureBuilder<bool>(
+                          future: saveProvider.checkList(drink: widget.drink),
+                          builder: (context, snapshot) {
+                            return ElevatedButton.icon(
+                              onPressed: () async {
+                                if (snapshot.data!) {
+                                  Navigator.pop(context);
+                                  mainScreenProvider.changeIndex(2);
+                                } else {
+                                  var resp = await saveProvider.saveItem(
+                                      drink: widget.drink);
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(content: Text(resp)));
+                                }
+                              },
+                              icon: (snapshot.hasData)
+                                  ? Icon((snapshot.data!)
+                                      ? Icons.favorite
+                                      : Icons.favorite_border)
+                                  : const Center(
+                                      child: CircularProgressIndicator(),
+                                    ),
+                              label: (snapshot.hasData)
+                                  ? Text((snapshot.data!)
+                                      ? 'Go to WishList'
+                                      : 'Add Drink to WIshList')
+                                  : const Center(
+                                      child: CircularProgressIndicator(),
+                                    ),
+                            );
                           },
-                          icon: const Icon(Icons.favorite),
-                          label: const Text('Add Drink to WishList'),
                         ),
                       ),
                     ),

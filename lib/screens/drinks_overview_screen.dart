@@ -58,8 +58,10 @@ class _DrinksOverviewState extends State<DrinksOverview> {
                                     width: double.infinity,
                                     progressIndicatorBuilder:
                                         (context, url, progress) =>
-                                            const CircularProgressIndicator
-                                                .adaptive(),
+                                            const Center(
+                                      child:
+                                          CircularProgressIndicator.adaptive(),
+                                    ),
                                   ),
                                 ),
                               ),

@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:math';
 import 'package:cocktail_party/models/drink.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -23,6 +22,7 @@ class SaveProvider with ChangeNotifier {
         jsonList = drinks!.map((drink) => drink.toJson()).toList();
         String jsonString = jsonEncode(jsonList);
         await prefs.setString('savedList', jsonString);
+        notifyListeners();
         return 'Drink Added successfully';
       } else {
         drinks = [];
@@ -31,6 +31,7 @@ class SaveProvider with ChangeNotifier {
             drinks!.map((drink) => drink.toJson()).toList();
         String jsonString = jsonEncode(jsonList);
         await prefs.setString('savedList', jsonString);
+        notifyListeners();
         return 'Drink Added Successfully';
       }
     } catch (e) {
@@ -52,17 +53,33 @@ class SaveProvider with ChangeNotifier {
     return drinks;
   }
 
+  Future<bool> checkList({required Drink drink}) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    var getSaved = prefs.getString('savedList');
+    if (getSaved != null) {
+      List<dynamic> jsonList = jsonDecode(getSaved);
+      drinks = [];
+      drinks = jsonList.map((e) {
+        return Drink.fromJson(e);
+      }).toList();
+      if (drinks!.contains(drink) == true) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   Future<String> deleteDrink({required Drink drink}) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     var getSaved = prefs.getString('savedList');
     if (getSaved != null) {
       List<dynamic> jsonList = jsonDecode(getSaved);
-      List<Drink> d1 = [];
-      d1 = jsonList.map((e) {
+
+      drinks = jsonList.map((e) {
         return Drink.fromJson(e);
       }).toList();
-      d1.remove(drink);
-      jsonList = d1.map((drink) => drink.toJson()).toList();
+      drinks!.remove(drink);
+      jsonList = drinks!.map((drink) => drink.toJson()).toList();
       String jsonString = jsonEncode(jsonList);
       await prefs.setString('savedList', jsonString);
       notifyListeners();
