@@ -23,34 +23,34 @@ class Drink {
   final String? strIngredient2;
   final String? strIngredient3;
   final String? strIngredient4;
-  final dynamic strIngredient5;
-  final dynamic strIngredient6;
-  final dynamic strIngredient7;
-  final dynamic strIngredient8;
-  final dynamic strIngredient9;
-  final dynamic strIngredient10;
-  final dynamic strIngredient11;
-  final dynamic strIngredient12;
-  final dynamic strIngredient13;
-  final dynamic strIngredient14;
-  final dynamic strIngredient15;
+  final String? strIngredient5;
+  final String? strIngredient6;
+  final String? strIngredient7;
+  final String? strIngredient8;
+  final String? strIngredient9;
+  final String? strIngredient10;
+  final String? strIngredient11;
+  final String? strIngredient12;
+  final String? strIngredient13;
+  final String? strIngredient14;
+  final String? strIngredient15;
   final String? strMeasure1;
   final String? strMeasure2;
   final String? strMeasure3;
   final String? strMeasure4;
-  final dynamic strMeasure5;
-  final dynamic strMeasure6;
-  final dynamic strMeasure7;
-  final dynamic strMeasure8;
-  final dynamic strMeasure9;
-  final dynamic strMeasure10;
-  final dynamic strMeasure11;
-  final dynamic strMeasure12;
-  final dynamic strMeasure13;
-  final dynamic strMeasure14;
-  final dynamic strMeasure15;
-  final dynamic strImageSource;
-  final dynamic strImageAttribution;
+  final String? strMeasure5;
+  final String? strMeasure6;
+  final String? strMeasure7;
+  final String? strMeasure8;
+  final String? strMeasure9;
+  final String? strMeasure10;
+  final String? strMeasure11;
+  final String? strMeasure12;
+  final String? strMeasure13;
+  final String? strMeasure14;
+  final String? strMeasure15;
+  final String? strImageSource;
+  final String? strImageAttribution;
   final String? strCreativeCommonsConfirmed;
   final String? dateModified;
 
@@ -135,32 +135,32 @@ class Drink {
         strIngredient2: data['strIngredient2'] as String?,
         strIngredient3: data['strIngredient3'] as String?,
         strIngredient4: data['strIngredient4'] as String?,
-        strIngredient5: data['strIngredient5'] as dynamic,
-        strIngredient6: data['strIngredient6'] as dynamic,
-        strIngredient7: data['strIngredient7'] as dynamic,
-        strIngredient8: data['strIngredient8'] as dynamic,
-        strIngredient9: data['strIngredient9'] as dynamic,
-        strIngredient10: data['strIngredient10'] as dynamic,
-        strIngredient11: data['strIngredient11'] as dynamic,
-        strIngredient12: data['strIngredient12'] as dynamic,
-        strIngredient13: data['strIngredient13'] as dynamic,
-        strIngredient14: data['strIngredient14'] as dynamic,
-        strIngredient15: data['strIngredient15'] as dynamic,
+        strIngredient5: data['strIngredient5'] as String?,
+        strIngredient6: data['strIngredient6'] as String?,
+        strIngredient7: data['strIngredient7'] as String?,
+        strIngredient8: data['strIngredient8'] as String?,
+        strIngredient9: data['strIngredient9'] as String?,
+        strIngredient10: data['strIngredient10'] as String?,
+        strIngredient11: data['strIngredient11'] as String?,
+        strIngredient12: data['strIngredient12'] as String?,
+        strIngredient13: data['strIngredient13'] as String?,
+        strIngredient14: data['strIngredient14'] as String?,
+        strIngredient15: data['strIngredient15'] as String?,
         strMeasure1: data['strMeasure1'] as String?,
         strMeasure2: data['strMeasure2'] as String?,
         strMeasure3: data['strMeasure3'] as String?,
         strMeasure4: data['strMeasure4'] as String?,
-        strMeasure5: data['strMeasure5'] as dynamic,
-        strMeasure6: data['strMeasure6'] as dynamic,
-        strMeasure7: data['strMeasure7'] as dynamic,
-        strMeasure8: data['strMeasure8'] as dynamic,
-        strMeasure9: data['strMeasure9'] as dynamic,
-        strMeasure10: data['strMeasure10'] as dynamic,
-        strMeasure11: data['strMeasure11'] as dynamic,
-        strMeasure12: data['strMeasure12'] as dynamic,
-        strMeasure13: data['strMeasure13'] as dynamic,
-        strMeasure14: data['strMeasure14'] as dynamic,
-        strMeasure15: data['strMeasure15'] as dynamic,
+        strMeasure5: data['strMeasure5'] as String?,
+        strMeasure6: data['strMeasure6'] as String?,
+        strMeasure7: data['strMeasure7'] as String?,
+        strMeasure8: data['strMeasure8'] as String?,
+        strMeasure9: data['strMeasure9'] as String?,
+        strMeasure10: data['strMeasure10'] as String?,
+        strMeasure11: data['strMeasure11'] as String?,
+        strMeasure12: data['strMeasure12'] as String?,
+        strMeasure13: data['strMeasure13'] as String?,
+        strMeasure14: data['strMeasure14'] as String?,
+        strMeasure15: data['strMeasure15'] as String?,
         strImageSource: data['strImageSource'] as dynamic,
         strImageAttribution: data['strImageAttribution'] as dynamic,
         strCreativeCommonsConfirmed:
@@ -234,7 +234,7 @@ class Drink {
   /// Converts [Drink] to a JSON string.
   String toJson() => json.encode(toMap());
 
-  Drink copyWith({
+  Drink copyWith(
     String? idDrink,
     String? strDrink,
     dynamic strDrinkAlternate,
@@ -286,7 +286,7 @@ class Drink {
     dynamic strImageAttribution,
     String? strCreativeCommonsConfirmed,
     String? dateModified,
-  }) {
+  ) {
     return Drink(
       idDrink: idDrink ?? this.idDrink,
       strDrink: strDrink ?? this.strDrink,

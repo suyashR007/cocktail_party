@@ -123,7 +123,6 @@ class _DrinkDetailsScreenState extends State<DrinkDetailsScreen> {
                 ),
               ),
               Container(
-                height: screenSize.height * 0.2,
                 margin: const EdgeInsets.all(8),
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
@@ -143,77 +142,92 @@ class _DrinkDetailsScreenState extends State<DrinkDetailsScreen> {
                       ),
                     ),
                     const Divider(thickness: 0.5),
-                    if (widget.drink.strIngredient1 != null)
+                    if (widget.drink.strIngredient1 != null &&
+                        widget.drink.strMeasure1 != null)
                       IngredientView(
                         ingradient: widget.drink.strIngredient1!,
                         qualtity: widget.drink.strMeasure1!,
                       ),
-                    if (widget.drink.strIngredient2 != null)
+                    if (widget.drink.strIngredient2 != null &&
+                        widget.drink.strMeasure2 != null)
                       IngredientView(
                         ingradient: widget.drink.strIngredient2!,
                         qualtity: widget.drink.strMeasure2!,
                       ),
-                    if (widget.drink.strIngredient3 != null)
+                    if (widget.drink.strIngredient3 != null &&
+                        widget.drink.strMeasure3 != null)
                       IngredientView(
                         ingradient: widget.drink.strIngredient3!,
                         qualtity: widget.drink.strMeasure3!,
                       ),
-                    if (widget.drink.strIngredient4 != null)
+                    if (widget.drink.strIngredient4 != null &&
+                        widget.drink.strMeasure4 != null)
                       IngredientView(
                         ingradient: widget.drink.strIngredient4!,
                         qualtity: widget.drink.strMeasure4!,
                       ),
-                    if (widget.drink.strIngredient5 != null)
+                    if (widget.drink.strIngredient5 != null &&
+                        widget.drink.strMeasure5 != null)
                       IngredientView(
                         ingradient: widget.drink.strIngredient5!,
                         qualtity: widget.drink.strMeasure5!,
                       ),
-                    if (widget.drink.strIngredient6 != null)
+                    if (widget.drink.strIngredient6 != null &&
+                        widget.drink.strMeasure6 != null)
                       IngredientView(
                         ingradient: widget.drink.strIngredient6!,
                         qualtity: widget.drink.strMeasure6!,
                       ),
-                    if (widget.drink.strIngredient7 != null)
+                    if (widget.drink.strIngredient7 != null &&
+                        widget.drink.strMeasure7 != null)
                       IngredientView(
                         ingradient: widget.drink.strIngredient7!,
                         qualtity: widget.drink.strMeasure7!,
                       ),
-                    if (widget.drink.strIngredient8 != null)
+                    if (widget.drink.strIngredient8 != null &&
+                        widget.drink.strMeasure8 != null)
                       IngredientView(
                         ingradient: widget.drink.strIngredient8!,
                         qualtity: widget.drink.strMeasure8!,
                       ),
-                    if (widget.drink.strIngredient9 != null)
+                    if (widget.drink.strIngredient9 != null &&
+                        widget.drink.strMeasure9 != null)
                       IngredientView(
-                        ingradient: widget.drink.strIngredient9,
+                        ingradient: widget.drink.strIngredient9!,
                         qualtity: widget.drink.strMeasure9!,
                       ),
-                    if (widget.drink.strIngredient10 != null)
+                    if (widget.drink.strIngredient10 != null &&
+                        widget.drink.strMeasure10 != null)
                       IngredientView(
                         ingradient: widget.drink.strIngredient10!,
                         qualtity: widget.drink.strMeasure10!,
                       ),
-                    if (widget.drink.strIngredient11 != null)
+                    if (widget.drink.strIngredient11 != null &&
+                        widget.drink.strMeasure11 != null)
                       IngredientView(
                         ingradient: widget.drink.strIngredient11!,
                         qualtity: widget.drink.strMeasure11!,
                       ),
-                    if (widget.drink.strIngredient12 != null)
+                    if (widget.drink.strIngredient12 != null &&
+                        widget.drink.strMeasure12 != null)
                       IngredientView(
                         ingradient: widget.drink.strIngredient12!,
                         qualtity: widget.drink.strMeasure12!,
                       ),
-                    if (widget.drink.strIngredient13 != null)
+                    if (widget.drink.strIngredient13 != null &&
+                        widget.drink.strMeasure13 != null)
                       IngredientView(
                         ingradient: widget.drink.strIngredient13!,
                         qualtity: widget.drink.strMeasure13!,
                       ),
-                    if (widget.drink.strIngredient14 != null)
+                    if (widget.drink.strIngredient14 != null &&
+                        widget.drink.strMeasure14 != null)
                       IngredientView(
                         ingradient: widget.drink.strIngredient14!,
                         qualtity: widget.drink.strMeasure14!,
                       ),
-                    if (widget.drink.strIngredient15 != null)
+                    if (widget.drink.strIngredient15 != null &&
+                        widget.drink.strMeasure15 != null)
                       IngredientView(
                         ingradient: widget.drink.strIngredient15!,
                         qualtity: widget.drink.strMeasure15!,
