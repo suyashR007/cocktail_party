@@ -196,6 +196,7 @@ class _DrinkDetailsScreenState extends State<DrinkDetailsScreen> {
                         ingradient: widget.drink.strIngredient9!,
                         qualtity: widget.drink.strMeasure9!,
                       ),
+                    //Simply adding it to make a ccommit
                     if (widget.drink.strIngredient10 != null &&
                         widget.drink.strMeasure10 != null)
                       IngredientView(
